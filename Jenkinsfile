@@ -8,14 +8,22 @@ pipeline {
                 checkout scm
             }
         }
+        stage('Debug Workspace') {
+            steps {
+                echo 'Listing files in the current directory...'
+                sh 'ls -F'
+            }
+        }
         stage('Build') {
             steps {
                 echo 'Setting up environment and installing dependencies...'
-                sh '''
-                    python3 -m venv venv
-                    . venv/bin/activate
-                    pip install -r requirements.txt
-                '''
+                dir('FaskApp') { // Replace 'FaskApp' with the actual directory name if different
+                    sh '''
+                        python3 -m venv venv
+                        . venv/bin/activate
+                        pip install -r requirements.txt
+                    '''
+                }
             }
         }
         stage('Test') {
