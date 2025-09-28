@@ -41,7 +41,7 @@ def registerSuccess():
         entry = Users(name=name,email=email,password=password)
         db.session.add(entry)
         db.session.commit()
-    #return render_template('success.html', form_data=data )
+    #return render_template('success.html', form_data=data)
     return render_template('login.html')
 
 @app.route('/loginsuccess', methods=['POST'])
@@ -55,7 +55,7 @@ def loginSucess():
             if (len(row.email)!=0):
                 print("Welcome dear ",row.name)
                 return render_template('dashboard.html', data=row.name)
-            # print("Name: ",row.name, "Email: ",row.email, "Password: ", row.password )
+            # print("Name: ",row.name, "Email: ",row.email, "Password: ", row.password)
     data = "Wrong Password"
     return render_template('login.html', data = data)
 
