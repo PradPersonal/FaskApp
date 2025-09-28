@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Cloning the repository...'
-                git url: 'https://github.com/PradPersonal/FaskApp.git', branch: 'main'
+                checkout scm
             }
         }
         stage('Build') {
