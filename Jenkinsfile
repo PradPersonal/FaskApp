@@ -17,7 +17,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Setting up environment and installing dependencies...'
-                dir('FaskApp') { // Replace 'FaskApp' with the actual directory name if different
+                dir('solution') { // Replace 'FaskApp' with the actual directory name if different
                     sh '''
                         python3 -m venv venv
                         . venv/bin/activate
